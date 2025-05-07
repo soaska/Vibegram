@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  android-builder:
+    image: thyrlian/android-sdk:latest
+    volumes:
+      - .:/app
+      - gradle-cache:/root/.gradle
+      - ./keystore:/app/keystore
+      - ./secrets_for_ci.env:/app/secrets_for_ci.env
+    working_dir: /app
+    environment:
+      - ANDROID_HOME=/opt/android-sdk
+      - GRADLE_USER_HOME=/root/.gradle
+    command: >
+      bash -c "
+        git config --global --add safe.directory /app &&
+        yes | sdkmanager --licenses &&
+        yes | sdkmanager 'platform-tools' 'platforms;android-33' 'build-tools;33.0.0' 'ndk;25.1.8937393' &&
+        ./gradlew assembleRelease
+      "
+
+volumes:
+  gradle-cache: 

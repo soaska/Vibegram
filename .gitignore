@@ -27,3 +27,7 @@ Cherrygram.jks
 mykey.jks
 actions-runner
 secrets_for_ci.env
+
+
+.env
+keystore/

@@ -1,3 +1,31 @@
+# Cherrygram
+
+Cherrygram - это форк Telegram с дополнительными функциями и улучшениями.
+
+## Сборка APK
+
+Для сборки APK используйте Docker. Подробная инструкция доступна в файле [guide.md](guide.md).
+
+### Краткая инструкция:
+
+1. Установите Docker и Docker Compose
+2. Клонируйте репозиторий
+3. Создайте файл `secrets_for_ci.env` с настройками keystore
+4. Запустите сборку:
+```bash
+sudo docker-compose up --build
+```
+
+## Требования
+
+- Docker
+- Docker Compose
+- Git
+
+## Лицензия
+
+Cherrygram распространяется под лицензией GPL-2.0. Подробности в файле [LICENSE](LICENSE).
+
 # 🍒 Cherrygram
 
 Cherrygram is a third-party Telegram client with not many but useful modifications.
@@ -176,7 +204,7 @@ MTproto protocol manuals: https://core.telegram.org/mtproto
 2. Fill out storeFile, storePassword, keyAlias, keyPassword in app's build.gradle to sign your app
 3. Go to https://console.firebase.google.com/, create two android apps with application IDs uz.unnarsx.cherrygram and uz.unnarsx.cherrygram.beta, turn on firebase messaging and download `google-services.json`, which should be copied into `TMessagesProj` folder.
 4. Open the project in the Studio (note that it should be opened, NOT imported).
-5. Fill out values in `TMessagesProj/src/main/java/uz/unnarsx/cherrygram/Extra.kt` – there’s a link for each of the variables showing where and which data to obtain.
+5. Fill out values in `TMessagesProj/src/main/java/uz/unnarsx/cherrygram/Extra.kt` – there's a link for each of the variables showing where and which data to obtain.
 6. You are ready to compile and use Cherrygram.
 
 
